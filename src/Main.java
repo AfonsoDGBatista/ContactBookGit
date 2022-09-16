@@ -1,14 +1,17 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
+import java.util.Objects;
 import java.util.Scanner;
 
-// autor: afonso
+// author: afonso
+// author: Pedro
 public class Main {
     //Constantes que definem os comandos
     public static final String ADD_CONTACT    = "AC";
     public static final String REMOVE_CONTACT = "RC";
     public static final String GET_PHONE      = "GP";
+    public static final String GET_NUMBER     = "GN";
     public static final String GET_EMAIL      = "GE";
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
@@ -22,6 +25,7 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String NUMBER_NOT_EXIST = "Phone number does not exist.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -52,6 +56,9 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GET_NUMBER:
+                    getNumber(in, cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -146,5 +153,14 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void getNumber(Scanner in, ContactBook cBook){
+        int number;
+        String name;
+        number = in.nextInt();in.nextLine();
+        name = cBook.hasNumber(number);
+        System.out.println(Objects.requireNonNullElse(name, NUMBER_NOT_EXIST));
+
     }
 }
