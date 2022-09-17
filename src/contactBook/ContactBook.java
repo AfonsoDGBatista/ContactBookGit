@@ -1,6 +1,6 @@
 package contactBook;
 
-import contactBook.Contact;
+import Exception.CommonNumberException;
 
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
@@ -35,8 +35,8 @@ public class ContactBook {
     //Pre: name != null && hasContact(name)
     public void deleteContact(String name) {
         int index = searchIndex(name);
-        for(int i=index; i<counter; i++)
-            contacts[i] = contacts[i+1];
+        for (int i = index; i < counter; i++)
+            contacts[i] = contacts[i + 1];
         counter--;
     }
 
@@ -64,7 +64,7 @@ public class ContactBook {
         int i = 0;
         int result = -1;
         boolean found = false;
-        while (i<counter && !found)
+        while (i < counter && !found)
             if (contacts[i].getName().equals(name))
                 found = true;
             else
@@ -74,8 +74,8 @@ public class ContactBook {
     }
 
     private void resize() {
-        Contact tmp[] = new Contact[2*contacts.length];
-        for (int i=0;i<counter; i++)
+        Contact tmp[] = new Contact[2 * contacts.length];
+        for (int i = 0; i < counter; i++)
             tmp[i] = contacts[i];
         contacts = tmp;
     }
@@ -85,7 +85,7 @@ public class ContactBook {
     }
 
     public boolean hasNext() {
-        return (currentContact >= 0 ) && (currentContact < counter);
+        return (currentContact >= 0) && (currentContact < counter);
     }
 
     //Pre: hasNext()
@@ -96,9 +96,9 @@ public class ContactBook {
 
     public String hasNumber(int number) {
         initializeIterator();
-        while( hasNext() ) {
+        while (hasNext()) {
             Contact c = next();
-            if(c.getPhone() == number){
+            if (c.getPhone() == number) {
                 return c.getName();
             }
         }
@@ -106,4 +106,13 @@ public class ContactBook {
     }
 
 
+    public void sameNumber() throws CommonNumberException {
+        boolean continuar = true;
+        for (int i = 0; (i < counter - 2) && continuar; i++)
+            for (int j = i + 1; (j < counter - 1) && continuar; j++) {
+                if (contacts[i].getPhone() == contacts[j].getPhone()) {
+                    throw  new CommonNumberException();
+                }
+            }
+    }
 }

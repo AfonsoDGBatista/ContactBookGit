@@ -1,6 +1,6 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
-import Exception.DifferentNumberException;
+import Exception.CommonNumberException;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -28,7 +28,8 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String NUMBER_NOT_EXIST = "Phone number does not exist.";
-    public static final String DIFFERENT_NUMBERS = "All contacts have different phone numbers";
+    public static final String ALL_DIFFERENT_NUMBERS = "All contacts have different phone numbers.";
+    public static final String COMMON_NUMBERS = "There are contacts that share phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -171,11 +172,12 @@ public class Main {
     }
     private static void sameNumber(Scanner in, ContactBook cBook) {
         try{
-
-
-        }catch (DifferentNumberException e){
-            System.out.println(DIFFERENT_NUMBERS);
-        };
+        cBook.sameNumber();
+            System.out.println(ALL_DIFFERENT_NUMBERS);
+        } catch (CommonNumberException e) {
+          System.out.println(COMMON_NUMBERS);
+        }
+        ;
     }
 
 
