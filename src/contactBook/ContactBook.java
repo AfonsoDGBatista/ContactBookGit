@@ -97,9 +97,9 @@ public class ContactBook {
     public String hasNumber(int number) {
         initializeIterator();
         while (hasNext()) {
-            Contact c = next();
-            if (c.getPhone() == number) {
-                return c.getName();
+            Contact contact = next();
+            if (contact.getPhone() == number) {
+                return contact.getName();
             }
         }
         return null;
