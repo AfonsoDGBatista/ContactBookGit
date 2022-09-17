@@ -3,6 +3,6 @@ Students:
 
 Pedro Silva - 57728; 
 Joao Mota - 
-Afonso Baptista - 59975
+Afonso Batista - 59975
 
 
