@@ -1,5 +1,6 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
+import Exception.DifferentNumberException;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String  SAME_NUMBER  ="EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -26,6 +28,7 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String NUMBER_NOT_EXIST = "Phone number does not exist.";
+    public static final String DIFFERENT_NUMBERS = "All contacts have different phone numbers";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -59,6 +62,9 @@ public class Main {
                     break;
                 case GET_NUMBER:
                     getNumber(in, cBook);
+                    break;
+                case SAME_NUMBER:
+                    sameNumber(in, cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -163,4 +169,14 @@ public class Main {
         System.out.println(Objects.requireNonNullElse(name, NUMBER_NOT_EXIST));
 
     }
+    private static void sameNumber(Scanner in, ContactBook cBook) {
+        try{
+
+
+        }catch (DifferentNumberException e){
+            System.out.println(DIFFERENT_NUMBERS);
+        };
+    }
+
+
 }
