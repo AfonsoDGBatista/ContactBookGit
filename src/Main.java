@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 // author: afonso
 // author: Pedro
+// author: Bravo Mota
 public class Main {
     //Constantes que definem os comandos
     public static final String ADD_CONTACT    = "AC";
@@ -17,7 +18,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
-    public static final String  SAME_NUMBER  ="EP";
+    public static final String SAME_NUMBER    = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
