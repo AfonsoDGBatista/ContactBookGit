@@ -179,7 +179,7 @@ public class Main {
         } catch (CommonNumberException e) {
           System.out.println(COMMON_NUMBERS);
         }
-        ;
+
     }
 
 
