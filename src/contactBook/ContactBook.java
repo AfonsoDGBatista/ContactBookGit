@@ -107,12 +107,17 @@ public class ContactBook {
 
 
     public void sameNumber() throws CommonNumberException {
-        boolean continuar = true;
-        for (int i = 0; (i < counter - 2) && continuar; i++)
-            for (int j = i + 1; (j < counter - 1) && continuar; j++) {
+        for (int i = 0; (i < counter - 1); i++)
+            for (int j = i + 1; (j < counter); j++) {
                 if (contacts[i].getPhone() == contacts[j].getPhone()) {
                     throw  new CommonNumberException();
                 }
             }
+    }
+
+    public void readAll(){
+        for (int i = 0; i < counter; i++) {
+            System.out.println(contacts[i].getPhone() + " " + contacts[i].getName());
+        }
     }
 }

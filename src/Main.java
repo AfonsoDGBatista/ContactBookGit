@@ -172,6 +172,7 @@ public class Main {
 
     }
     private static void sameNumber(Scanner in, ContactBook cBook) {
+
         try{
         cBook.sameNumber();
             System.out.println(ALL_DIFFERENT_NUMBERS);
